@@ -60,4 +60,15 @@ alias nix-news='home-manager news'
 alias flake-update='cd /etc/nixos && nix flake update'
 
 
+nixdo() {
+  echo "Choose: [1] System, [2] Home, [3] Both"
+  read -r choice
+  case "$choice" in
+    1) ns ;;
+    2) hm ;;
+    3) nix-rebuild ;;
+    *) echo "Invalid" ;;
+  esac
+}
+
 eval "$(zoxide init zsh)"

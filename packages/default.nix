@@ -39,4 +39,6 @@ with pkgs; [
      clang
      lazygit
      home-manager
+     cargo
+     nixfmt
 ] 

@@ -21,6 +21,7 @@
   extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 
+
   # Enable networking
   networking.networkmanager.enable = true;
   services.dbus.enable = true;
