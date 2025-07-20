@@ -36,7 +36,7 @@ in {
     ".config/picom"
     ".zshrc_custom"
     ".themes"
-    ".local/share/fcitx5"
+    ".local/share/fcitx6"
     "fcitx5"
     "wallpapers"
     ".themes"
