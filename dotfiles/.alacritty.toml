@@ -1,0 +1,13 @@
+[general]
+import = ["~/dracula.toml"]
+[window]
+opacity = 0.5
+padding = {x=5,y=5}
+
+[terminal]
+shell = "zsh"
+[font]
+size = 16.0
+normal = {family="JetBrainsMono Nerd Font",style="regular"}
+bold = {family="JetBrainsMono Nerd Font",style="Bold"}
+italic = {family="JetBrainsMono Nerd Font",style="italic"}

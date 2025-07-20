@@ -1,0 +1,38 @@
+alias s="sudo"
+alias p="pacman"
+alias cl="clear"
+alias ta="tmux attach"
+alias tc="tmux create-session"
+alias tls="tmux list-sessions"
+alias y="yarn"
+alias cb="cmake -B build -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_CXX_STANDARD=17"
+alias b="bun"
+alias code="$HOME/VSCode/code --ozone-platform-hint=wayland"
+alias vim="nvim"
+alias c="cargo"
+alias get_idf='. $HOME/esp/esp-idf/export.sh'
+
+export PATH=$PATH:/home/veaq/.spicetify:$HOME/.emacs.d/bin/:$HOME/tgs2png/build/tgs2png:/usr/local/texlive/2025/bin/x86_64-linux/
+
+# Created by `pipx` on 2025-05-08 16:41:16
+export PATH="$PATH:/home/veaq/.local/bin:$HOME/.config/emacs/bin/"
+export IDF_PATH=$HOME/esp/esp-idf
+export DOOMDIR="$HOME/.config/doom"
+export EMACSDIR="$HOME/.config/emacs"
+
+# Created by `pipx` on 2025-05-14 19:42:31
+export GOPATH="$HOME/go"
+export PATH="$PATH:/home/vqphd/.local/bin:/usr/local/texlive/2025/bin/x86_64-linux:/home/vqphd/go/bin"
+export GO111MODULE=on
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+export TERM="xterm-256color"
+export COLORTERM=truecolor
+export GITLAB_TOKEN="glpat-9mynzKu-GtKEqxyR4fGi"
+export PATH=$PATH:/home/vqphd/.spicetify
+alias switch='sudo nixos-rebuild switch --flake /etc/nixos#nixlab'
+alias boot='sudo nixos-rebuild boot --flake /etc/nixos#niblab'
+alias test='sudo nixos-rebuild test --flake /etc/nixos#nixlab'
+
+eval "$(zoxide init zsh)"
