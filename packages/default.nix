@@ -38,4 +38,5 @@ with pkgs; [
      docker-compose
      clang
      lazygit
+     home-manager
 ] 

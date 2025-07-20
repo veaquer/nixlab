@@ -1,29 +1,17 @@
 { config, pkgs, lib,inputs, system, ... }:
 
 let
-  dotfilesDir = builtins.filterSource (path: type: true) ./dotfiles;
-
-  collectFiles = path:
-    let
-      fullPath = "${dotfilesDir}/${path}";
-      entries = builtins.readDir fullPath;
-    in
-      lib.concatMapAttrs (name: type:
-        let
-          relPath = "${path}/${name}";
-          homePath = lib.removePrefix "./" relPath;
-        in
-          if type == "directory" then
-            collectFiles relPath
-          else {
-            "${homePath}" = {
-              source = "${dotfilesDir}/${relPath}";
-              executable = builtins.elem name [ "bspwmrc" "sxhkdrc" ];
-            };
-          }
-      ) entries;
-
-  flatSymlinks = collectFiles "";
+  dotfilesDir = "/home/vqphd/Projects/nixlab/users/vqphd/dotfiles";
+  outOfStore = config.lib.file.mkOutOfStoreSymlink;
+  
+  mkDotfiles = files:
+    lib.listToAttrs (map (file: {
+      name = file;
+      value = {
+        source = outOfStore "${dotfilesDir}/${file}";
+	target = "${file}";
+      };
+    }) files);
 in {
   home.username = "vqphd";
   home.homeDirectory = "/home/vqphd";
@@ -37,7 +25,17 @@ in {
   
   gtk.theme.name = "Catppuccin-Dark";
 
-  home.file = flatSymlinks;
+  home.file = mkDotfiles [
+    ".p10k.zsh"
+    ".alacritty.toml"
+    ".tmux.conf"
+    ".config/nvim"
+    ".config/bspwm"
+    ".config/sxhkd"
+    ".config/polybar"
+    ".zshrc_custom"
+    ".themes/Catppuccin-Dark"
+  ];
 
   home.sessionVariables = {
   GTK_THEME = "Catppuccin-Dark";
@@ -50,7 +48,6 @@ in {
       init.defaultBranch = "main";
     };
   };
-
 
   programs.home-manager.enable = true;
 }

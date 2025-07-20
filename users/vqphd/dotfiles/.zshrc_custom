@@ -31,8 +31,33 @@ export TERM="xterm-256color"
 export COLORTERM=truecolor
 export GITLAB_TOKEN="glpat-9mynzKu-GtKEqxyR4fGi"
 export PATH=$PATH:/home/vqphd/.spicetify
-alias switch='sudo nixos-rebuild switch --flake /etc/nixos#nixlab'
-alias boot='sudo nixos-rebuild boot --flake /etc/nixos#nixlab'
-alias test='sudo nixos-rebuild test --flake /etc/nixos#nixlab'
+
+# 🛠️ Rebuild NixOS system
+alias ns='sudo nixos-rebuild switch --flake /etc/nixos#nixlab'
+
+# 🧪 Apply Home Manager changes
+alias hm='home-manager switch --flake /etc/nixos#vqphd'
+
+# 🔁 Rebuild both (system + user)
+alias nix-rebuild='ns && hm'
+
+# 💥 Garbage collection
+alias nix-gc='sudo nix-collect-garbage -d && nix-collect-garbage -d && nix store gc'
+
+# 🔎 Diff generations
+alias nix-diff='nvd diff /run/current-system /nix/var/nix/profiles/system'
+
+# 📄 Show current system config
+alias nixos-config='cd /etc/nixos && lsd --tree'
+
+# 📁 Edit flake
+alias flake-edit='nvim /etc/nixos/flake.nix'
+
+# 🧠 Show news
+alias nix-news='home-manager news'
+
+# ⚙️ Update flake inputs
+alias flake-update='cd /etc/nixos && nix flake update'
+
 
 eval "$(zoxide init zsh)"
