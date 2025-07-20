@@ -16,24 +16,41 @@
     };
 
   outputs = { self, nixpkgs,home-manager, zen-browser, ... }@inputs:
-  {
-    nixosConfigurations.nixlab = nixpkgs.lib.nixosSystem {
+  let
       system = "x86_64-linux";
-      specialArgs = { inherit inputs; };
-
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+        overlays = [ (import ./overlays) ];
+      };
+  in{
+    nixosConfigurations.nixlab = nixpkgs.lib.nixosSystem {
+      inherit system;
+      specialArgs = {
+        inherit inputs;
+        pkgs = pkgs;
+      };
       modules = [
-        ./configuration.nix
+        ./hosts/nixlab/configuration.nix
+        ./hosts/nixlab/hardware-configuration.nix
         ./fonts.nix
          home-manager.nixosModules.home-manager
          {
               home-manager.useGlobalPkgs = true;
               home-manager.backupFileExtension = "HMBackup";
               home-manager.useUserPackages = true;
-              home-manager.users.vqphd.imports = [
-                ./home.nix
-              ];
+              home-manager.users.vqphd = import ./hosts/nixlab/home.nix;
               home-manager.extraSpecialArgs = { inherit inputs; system = "x86_64-linux"; };
          }
+      ];
+  };
+  homeConfigurations.vqphd = home-manager.lib.homeManagerConfiguration {
+      inherit pkgs;
+      extraSpecialArgs = {
+        inherit inputs system;
+      };
+      modules = [
+        ./hosts/nixlab/home.nix
       ];
   };
  };
