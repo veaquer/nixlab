@@ -17,6 +17,9 @@ in {
   home.packages = with pkgs; [
     inputs.zen-browser.packages."${system}".default
     lua
+    postman
+    anki-bin
+    zathura
   ];
 
   xdg.enable = true;
@@ -34,12 +37,13 @@ in {
     ".config/sxhkd"
     ".config/polybar"
     ".config/picom"
+    ".config/zathura"
     ".zshrc_custom"
     ".themes"
     ".local/share/fcitx5"
     "fcitx5"
     "wallpapers"
-    ".themes"
+    ".local/share/themes/Catppuccin-Dark"
   ];
 
   home.sessionVariables = { GTK_THEME = "Catppuccin-Dark"; };
