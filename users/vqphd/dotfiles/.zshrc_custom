@@ -32,6 +32,9 @@ export COLORTERM=truecolor
 export GITLAB_TOKEN="glpat-9mynzKu-GtKEqxyR4fGi"
 export PATH=$PATH:/home/vqphd/.spicetify
 
+export NIX_LD=/nix/store/g2jzxk3s7cnkhh8yq55l4fbvf639zy37-glibc-2.40-66/lib/ld-linux-x86-64.so.2
+export NIX_LD_LIBRARY_PATH=/run/opengl-driver/lib:/run/current-system/sw/lib:/nix/store/g9py24z458m8pxfhdzcyx15yyj26idfa-glib-2.84.3-dev/lib
+
 # 🛠️ Rebuild NixOS system
 alias ns='sudo nixos-rebuild switch --flake /etc/nixos#nixlab'
 
@@ -72,3 +75,4 @@ nixdo() {
 }
 
 eval "$(zoxide init zsh)"
+bindkey -v

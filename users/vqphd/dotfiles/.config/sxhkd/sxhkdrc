@@ -29,6 +29,8 @@ super + @space
 super + a
    alacritty
 
+super + x
+   xmind
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd

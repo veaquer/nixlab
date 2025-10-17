@@ -3,6 +3,7 @@ with pkgs; [
   bspwm
   sxhkd
   alacritty
+  kitty
   picom
   rofi
   wofi
@@ -42,4 +43,57 @@ with pkgs; [
   cargo
   nixfmt
   mpv
+  brightnessctl
+  libGLU
+  gotest
+  gnumake
+  android-studio
+  nodejs_24
+  blueberry
+  jdk21
+  glxinfo
+  mesa-demos
+  libglvnd
+  jdt-language-server
+  jetbrains-toolbox
+  cmake
+  weston
+  audacity
+  opentabletdriver
+  krita
+  rpiplay
+  avahi
+  avahi-compat
+  gst_all_1.gstreamer
+  gst_all_1.gst-plugins-base
+  gst_all_1.gst-plugins-good
+  gst_all_1.gst-plugins-bad
+  gst_all_1.gst-plugins-ugly
+  gst_all_1.gst-libav
+  uxplay
+  linuxPackages.v4l2loopback
+  linuxPackages_5_10.v4l2loopback
+  vlc
+  ffmpeg
+  wine
+  wineWowPackages.full
+  wine64
+  winetricks
+  bottles
+  xmind
+  osu-lazer-bin
+
+  libGL
+  xorg.libX11
+  xorg.libXrandr
+  xorg.libXcursor
+  xorg.libXi
+  xorg.libXext
+  xorg.libXxf86vm
+  mesa
+  glib
+  xorg.xcursorthemes
+  lunar-client
+  songrec
+  appimage-run
 ]

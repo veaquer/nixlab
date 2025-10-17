@@ -20,6 +20,12 @@ in {
     postman
     anki-bin
     zathura
+    golangci-lint
+    lefthook
+    franz
+    bun
+    prismlauncher
+    blender
   ];
 
   xdg.enable = true;

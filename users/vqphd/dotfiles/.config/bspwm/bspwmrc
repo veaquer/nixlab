@@ -30,7 +30,7 @@ export PATH="$PATH:/usr/local/texlive/2025/bin/x86_64-linux:~/rofi-translate"
 # Autostart apps
 sxhkd &
 picom --config $HOME/.config/picom/picom.conf &
-feh --no-fehbg --bg-fill $HOME/wallpapers/satanic_astronaut.jpg &
+feh --no-fehbg --bg-fill $HOME/Pictures/wallpapers/vjyjylarb9vf1.png &
 $HOME/scripts/bspwm-padding-manager.sh &
 dunst & 
 polybar --config=$HOME/.config/polybar/config.ini &
@@ -38,3 +38,4 @@ emacs --daemon &
 fcitx5 -d &
 otd-daemon &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+xsetroot -cursor_name left_ptr
